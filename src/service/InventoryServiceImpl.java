@@ -27,7 +27,7 @@ public class InventoryServiceImpl implements  InventoryService{
 
     @Override
     public void searchBookByTitle(String title) {
-        List<Novel> result = inventoryRepository.searchBookByTitle(title);
+        var result = inventoryRepository.searchBookByTitle(title);
 
         Integer i = 0;
         for (var data :
@@ -69,7 +69,7 @@ public class InventoryServiceImpl implements  InventoryService{
 
     @Override
     public void getAllBook() {
-        List<Novel> result = inventoryRepository.findAll();
+        var result = inventoryRepository.findAll();
         Integer i = 0;
         for (var data :
                 result) {
