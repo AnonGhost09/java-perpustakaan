@@ -35,7 +35,7 @@ public class Menu {
                         System.out.println("MASUKAN DATA NOVEL");
 
                         System.out.println("Masukan title : ");
-                        String title = scanner.next();
+                        String title = scanner.nextLine();
 
                         try{
                             System.out.println("Masukan publication : ");
