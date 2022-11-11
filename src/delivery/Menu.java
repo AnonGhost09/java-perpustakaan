@@ -35,9 +35,8 @@ public class Menu {
                         System.out.println("MASUKAN DATA NOVEL");
 
                         System.out.println("Masukan title : ");
-                        String title = scanner.nextLine();
+                        String title = scanner.next();
 
-                        try{
                             System.out.println("Masukan publication : ");
                             Integer publication = scanner.nextInt();
 
@@ -48,9 +47,6 @@ public class Menu {
                             String writer = scanner.next();
 
                             inventoryService.addNovel(new Novel(FormatBook.novelFormat(counter, publication), title, publication, publisher, writer));
-                        }catch(Exception e){
-                            System.out.println("publication harus integer ya");
-                        }
 
                     } else if (option2 == 2) {
                         try{
