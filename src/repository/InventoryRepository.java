@@ -13,5 +13,5 @@ public interface InventoryRepository {
     List<Novel> searchBookByTitle(String title);
     List<Novel> findAll();
     void delete();
-    Novel findByIndex(Integer idx);
+    List<Novel> findBydId();
 }

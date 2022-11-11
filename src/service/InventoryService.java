@@ -10,7 +10,7 @@ public interface InventoryService {
     void addNovel(Novel novel);
     void addMegazine(Megazine megazine);
     void searchBookByTitle(String title);
-    Book searchBookById(Integer id);
+    void searchBookById(String id);
     void deleteBook();
     void getAllBook();
     Integer hitungSize();

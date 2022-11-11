@@ -80,7 +80,10 @@ public class Menu {
                         System.out.println("Gak ada datanye !!!");
                     }
                 } else if (option == 3) {
+                    System.out.println("Masukan ID ya : ");
+                    String search = scanner.next();
 
+                    inventoryService.searchBookById(search);
                 } else if (option == 4) {
                     inventoryService.deleteBook();
                 } else if (option == 5) {

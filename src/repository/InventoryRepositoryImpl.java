@@ -93,7 +93,11 @@ public class InventoryRepositoryImpl implements InventoryRepository {
     }
 
     @Override
-    public Novel findByIndex(Integer idx) {
-
+    public List<Novel> findBydId() {
+        List<Novel> result = readData().map(p -> {
+            String[] temp = p.split(",");
+            return new Novel(temp[0],temp[1],Integer.valueOf(temp[2]),temp[3],temp[4]);
+        }).collect(Collectors.toList());
+        return result;
     }
 }

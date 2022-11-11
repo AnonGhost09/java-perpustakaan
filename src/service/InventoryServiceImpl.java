@@ -6,6 +6,7 @@ import model.Novel;
 import repository.InventoryRepository;
 import repository.InventoryRepositoryImpl;
 
+import java.sql.SQLOutput;
 import java.util.List;
 
 public class InventoryServiceImpl implements  InventoryService{
@@ -42,8 +43,22 @@ public class InventoryServiceImpl implements  InventoryService{
     }
 
     @Override
-    public Book searchBookById(Integer id) {
-        return null;
+    public void searchBookById(String id) {
+        var result = inventoryRepository.findBydId();
+
+        Integer i = 0;
+
+        for (var data:
+                result) {
+            i++;
+            if(data.getCode().equals(id)){
+                System.out.println(i);
+                System.out.println("Title : "+data.getTitle());
+                System.out.println("Writer  :" +data.getWriter());
+                System.out.println("Publication :"+data.getPublication());
+                System.out.println("Publisher :"+data.getPublisher());
+            }
+        }
     }
 
     @Override
