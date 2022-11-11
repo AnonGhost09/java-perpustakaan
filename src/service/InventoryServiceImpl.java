@@ -34,6 +34,7 @@ public class InventoryServiceImpl implements  InventoryService{
                 result) {
             i++;
             System.out.println(i);
+            System.out.println("Code : "+data.getCode());
             System.out.println("Title : "+data.getTitle());
             System.out.println("Publication : "+data.getPublication());
             System.out.println("Writer : "+data.getWriter());
@@ -53,6 +54,7 @@ public class InventoryServiceImpl implements  InventoryService{
             i++;
             if(data.getCode().equals(id)){
                 System.out.println(i);
+                System.out.println("Code : "+data.getCode());
                 System.out.println("Title : "+data.getTitle());
                 System.out.println("Writer  :" +data.getWriter());
                 System.out.println("Publication :"+data.getPublication());
@@ -75,6 +77,7 @@ public class InventoryServiceImpl implements  InventoryService{
                 result) {
             i++;
             System.out.println(i);
+            System.out.println("Code : "+data.getCode());
             System.out.println("Title :"+data.getTitle());
             System.out.println("Publication :"+data.getPublication());
             System.out.println("Writer : "+data.getWriter());
