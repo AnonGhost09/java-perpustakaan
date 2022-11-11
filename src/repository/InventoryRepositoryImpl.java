@@ -70,19 +70,19 @@ public class InventoryRepositoryImpl implements InventoryRepository {
 
     @Override
     public List<Novel> searchBookByTitle(String title) {
-        List result = readData().map(s -> {
-            String[] bookString = s.split(",");
-            return new Novel(bookString[1],Integer.valueOf(bookString[2]),bookString[3],bookString[4],null);
-        }).collect(Collectors.toList());
+        List<Novel> result = readData().map(p -> {
+            String[] temp = p.split(",");
+            return new Novel(temp[0],temp[1],Integer.valueOf(temp[2]),temp[3],temp[4]);
+        }).filter(n -> n.getTitle().equals(title)).collect(Collectors.toList());
         return result;
     }
 
     @Override
-    public List findAll() {
-        List result = readData().map(p -> {
+    public List<Novel> findAll() {
+        List<Novel> result = readData().map(p -> {
             String[] temp = p.split(",");
-            return new Novel(temp[0],temp[1],temp[2],temp[3],temp[4],0);
-        })
+            return new Novel(temp[0],temp[1],Integer.valueOf(temp[2]),temp[3],temp[4]);
+        }).collect(Collectors.toList());
         return result;
     }
 
@@ -93,7 +93,7 @@ public class InventoryRepositoryImpl implements InventoryRepository {
     }
 
     @Override
-    public Book findByIndex(Integer idx) {
-        return null;
+    public Novel findByIndex(Integer idx) {
+
     }
 }

@@ -11,7 +11,7 @@ public interface InventoryRepository {
     Integer getSize();
     void addMegazine (Megazine megazine);
     List<Novel> searchBookByTitle(String title);
-    List<Book> findAll();
+    List<Novel> findAll();
     void delete();
-    Book findByIndex(Integer idx);
+    Novel findByIndex(Integer idx);
 }

@@ -25,8 +25,20 @@ public class InventoryServiceImpl implements  InventoryService{
     }
 
     @Override
-    public List<Novel> searchBookByTitle(String title) {
-        return inventoryRepository.searchBookByTitle(title);
+    public void searchBookByTitle(String title) {
+        List<Novel> result = inventoryRepository.searchBookByTitle(title);
+
+        Integer i = 0;
+        for (var data :
+                result) {
+            i++;
+            System.out.println(i);
+            System.out.println("Title : "+data.getTitle());
+            System.out.println("Publication : "+data.getPublication());
+            System.out.println("Writer : "+data.getWriter());
+            System.out.println("Publisher : "+data.getPublisher());
+        }
+
     }
 
     @Override
@@ -42,10 +54,16 @@ public class InventoryServiceImpl implements  InventoryService{
 
     @Override
     public void getAllBook() {
-        List result = inventoryRepository.findAll();
-        for (String data : result
-             ) {
-
+        List<Novel> result = inventoryRepository.findAll();
+        Integer i = 0;
+        for (var data :
+                result) {
+            i++;
+            System.out.println(i);
+            System.out.println("Title :"+data.getTitle());
+            System.out.println("Publication :"+data.getPublication());
+            System.out.println("Writer : "+data.getWriter());
+            System.out.println("Publisher : " + data.getPublisher());
         }
     }
 

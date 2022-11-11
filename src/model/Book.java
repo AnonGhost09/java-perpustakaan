@@ -4,13 +4,11 @@ public class Book {
     private String code;
     private String title;
     private Integer publication;
-    private Integer size;
 
-    public Book(String code, String title, Integer publication, Integer size) {
+    public Book(String code, String title, Integer publication) {
         this.code = code;
         this.title = title;
         this.publication = publication;
-        this.size = size;
     }
 
     public String getCode() {
