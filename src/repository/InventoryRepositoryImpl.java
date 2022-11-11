@@ -65,22 +65,24 @@ public class InventoryRepositoryImpl implements InventoryRepository {
     @Override
     public void addMegazine(Megazine megazine) {
         insertData(megazine.toCsv());
-        System.out.println("Berhasil");
     }
 
     @Override
-    public List<Novel> searchBookByTitle(String title) {
-        List<Novel> result = readData().map(p -> {
+    public List<Book> searchBookByTitle(String title) {
+        var result = readData().map(p -> {
             String[] temp = p.split(",");
+            if(temp[0].matches(".*\\b-B-\\b.*")) return new Megazine(temp[0],temp[1],Integer.valueOf(temp[2]),temp[3]);
             return new Novel(temp[0],temp[1],Integer.valueOf(temp[2]),temp[3],temp[4]);
         }).filter(n -> n.getTitle().equals(title)).collect(Collectors.toList());
+
         return result;
     }
 
     @Override
-    public List<Novel> findAll() {
-        List<Novel> result = readData().map(p -> {
+    public List<Book> findAll() {
+        var result = readData().map(p -> {
             String[] temp = p.split(",");
+            if(temp[0].matches(".*\\b-B-\\b.*")) return new Megazine(temp[0],temp[1],Integer.valueOf(temp[2]),temp[3]);
             return new Novel(temp[0],temp[1],Integer.valueOf(temp[2]),temp[3],temp[4]);
         }).collect(Collectors.toList());
         return result;
@@ -93,9 +95,10 @@ public class InventoryRepositoryImpl implements InventoryRepository {
     }
 
     @Override
-    public List<Novel> findBydId() {
-        List<Novel> result = readData().map(p -> {
+    public List<Book> findBydId() {
+      var result = readData().map(p -> {
             String[] temp = p.split(",");
+          if(temp[0].matches(".*\\b-B-\\b.*")) return new Megazine(temp[0],temp[1],Integer.valueOf(temp[2]),temp[3]);
             return new Novel(temp[0],temp[1],Integer.valueOf(temp[2]),temp[3],temp[4]);
         }).collect(Collectors.toList());
         return result;

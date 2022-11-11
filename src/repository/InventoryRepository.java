@@ -6,12 +6,12 @@ import model.Novel;
 
 import java.util.List;
 
-public interface InventoryRepository {
+public interface InventoryRepository{
     void addNovel (Novel novel);
     Integer getSize();
     void addMegazine (Megazine megazine);
-    List<Novel> searchBookByTitle(String title);
-    List<Novel> findAll();
+    List<Book> searchBookByTitle(String title);
+    List<Book> findAll();
     void delete();
-    List<Novel> findBydId();
+    List<Book> findBydId();
 }

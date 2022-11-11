@@ -33,12 +33,20 @@ public class InventoryServiceImpl implements  InventoryService{
         for (var data :
                 result) {
             i++;
-            System.out.println(i);
-            System.out.println("Code : "+data.getCode());
-            System.out.println("Title : "+data.getTitle());
-            System.out.println("Publication : "+data.getPublication());
-            System.out.println("Writer : "+data.getWriter());
-            System.out.println("Publisher : "+data.getPublisher());
+            if(data instanceof Novel) {
+                System.out.println(i);
+                System.out.println("Code : " + data.getCode());
+                System.out.println("Title : " + data.getTitle());
+                System.out.println("Publication : " + data.getPublication());
+                System.out.println("Writer : " + ((Novel) data).getWriter());
+                System.out.println("Publisher : " + ((Novel) data).getPublisher());
+            }else{
+                System.out.println(i);
+                System.out.println("Code : "+data.getCode());
+                System.out.println("Title :"+data.getTitle());
+                System.out.println("Publication "+data.getPublication());
+                System.out.println("Publisher Periode :"+((Megazine) data).getPublishPeriode());
+            }
         }
 
     }
@@ -52,13 +60,19 @@ public class InventoryServiceImpl implements  InventoryService{
         for (var data:
                 result) {
             i++;
-            if(data.getCode().equals(id)){
+            if(data instanceof Novel) {
+                System.out.println(i);
+                System.out.println("Code : " + data.getCode());
+                System.out.println("Title : " + data.getTitle());
+                System.out.println("Publication : " + data.getPublication());
+                System.out.println("Writer : " + ((Novel) data).getWriter());
+                System.out.println("Publisher : " + ((Novel) data).getPublisher());
+            }else{
                 System.out.println(i);
                 System.out.println("Code : "+data.getCode());
-                System.out.println("Title : "+data.getTitle());
-                System.out.println("Writer  :" +data.getWriter());
-                System.out.println("Publication :"+data.getPublication());
-                System.out.println("Publisher :"+data.getPublisher());
+                System.out.println("Title :"+data.getTitle());
+                System.out.println("Publication "+data.getPublication());
+                System.out.println("Publisher Periode :"+((Megazine) data).getPublishPeriode());
             }
         }
     }
@@ -71,17 +85,25 @@ public class InventoryServiceImpl implements  InventoryService{
 
     @Override
     public void getAllBook() {
-        var result = inventoryRepository.findAll();
+        var result  = inventoryRepository.findAll();
         Integer i = 0;
         for (var data :
                 result) {
             i++;
-            System.out.println(i);
-            System.out.println("Code : "+data.getCode());
-            System.out.println("Title :"+data.getTitle());
-            System.out.println("Publication :"+data.getPublication());
-            System.out.println("Writer : "+data.getWriter());
-            System.out.println("Publisher : " + data.getPublisher());
+            if(data instanceof Novel){
+                System.out.println(i);
+                System.out.println("Code : "+data.getCode());
+                System.out.println("Title :"+data.getTitle());
+                System.out.println("Publication :"+data.getPublication());
+                System.out.println("Writer : "+((Novel) data).getWriter());
+                System.out.println("Publisher : " + ((Novel) data).getPublisher());
+            }else {
+                System.out.println(i);
+                System.out.println("Code : "+data.getCode());
+                System.out.println("Title :"+data.getTitle());
+                System.out.println("Publication "+data.getPublication());
+                System.out.println("Publisher Periode:"+((Megazine) data).getPublishPeriode());
+            }
         }
     }
 

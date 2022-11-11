@@ -59,7 +59,7 @@ public class Menu {
                             Integer publication = scanner.nextInt();
 
                             System.out.println("Masukan publisherPeriode : ");
-                            String publisherPeriode = scanner.next();
+                            String publisherPeriode = scanner.next().toString();
 
                             inventoryService.addMegazine(new Megazine(FormatBook.megazineFormat(counter, publication), title, publication, publisherPeriode));
                         }catch(Exception e){

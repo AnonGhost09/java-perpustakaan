@@ -5,6 +5,10 @@ public class Book {
     private String title;
     private Integer publication;
 
+    private Megazine megazine;
+
+    private Novel novel;
+
     public Book(String code, String title, Integer publication) {
         this.code = code;
         this.title = title;
@@ -21,5 +25,13 @@ public class Book {
 
     public Integer getPublication() {
         return publication;
+    }
+
+    public Megazine getMegazine() {
+        return megazine;
+    }
+
+    public Novel getNovel() {
+        return novel;
     }
 }
