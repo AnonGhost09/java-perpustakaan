@@ -60,6 +60,7 @@ public class InventoryServiceImpl implements  InventoryService{
         for (var data:
                 result) {
             i++;
+            if(data.getCode().equals(id)){
             if(data instanceof Novel) {
                 System.out.println(i);
                 System.out.println("Code : " + data.getCode());
@@ -73,6 +74,7 @@ public class InventoryServiceImpl implements  InventoryService{
                 System.out.println("Title :"+data.getTitle());
                 System.out.println("Publication "+data.getPublication());
                 System.out.println("Publisher Periode :"+((Megazine) data).getPublishPeriode());
+            }
             }
         }
     }

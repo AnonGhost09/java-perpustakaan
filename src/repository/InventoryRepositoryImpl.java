@@ -52,19 +52,49 @@ public class InventoryRepositoryImpl implements InventoryRepository {
         }
     }
 
+    public boolean cekUniqueId(String id){
+        var result = getListBook();
+        boolean cek = false;
+        for (var data :
+                result) {
+            if (data.equals(id)) {
+                cek = true;
+                break;
+            }
+        }
+        return cek;
+    }
+
+    public List<Book> getListBook(){
+        var result = readData().map(p -> {
+            String[] temp = p.split(",");
+            if (temp[0].matches(".*\\b-B-\\b.*"))
+                return new Megazine(temp[0], temp[1], Integer.valueOf(temp[2]), temp[3]);
+            return new Novel(temp[0], temp[1], Integer.valueOf(temp[2]), temp[3], temp[4]);
+        }).collect(Collectors.toList());
+        return result;
+    }
+
     @Override
     public Integer getSize() {
         return readData().collect(Collectors.toList()).size();
     }
 
+
     @Override
     public void addNovel(Novel novel) {
-        insertData(novel.toCsv());
+        if(!cekUniqueId(novel.getCode())){
+            insertData(novel.toCsv());
+        }
+        System.out.println("ID NOVEL SUDAH TERDAFTAR");
     }
 
     @Override
     public void addMegazine(Megazine megazine) {
-        insertData(megazine.toCsv());
+        if(!cekUniqueId(megazine.getCode())){
+            insertData(megazine.toCsv());
+        }
+        System.out.println("ID MEGAZINE SUDAH TERDAFTAR");
     }
 
     @Override

@@ -52,14 +52,16 @@ public class Menu {
                         try{
                             System.out.println("MASUKAN DATA MEGAZINE");
 
+                            Scanner scanner2 = new Scanner(System.in);
+
                             System.out.println("Masukan title : ");
-                            String title = scanner.next();
+                            String title = scanner2.next();
 
                             System.out.println("Masukan publication : ");
                             Integer publication = scanner.nextInt();
 
                             System.out.println("Masukan publisherPeriode : ");
-                            String publisherPeriode = scanner.next().toString();
+                            String publisherPeriode = scanner.next();
 
                             inventoryService.addMegazine(new Megazine(FormatBook.megazineFormat(counter, publication), title, publication, publisherPeriode));
                         }catch(Exception e){
